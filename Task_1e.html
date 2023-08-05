@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <script>
+      fetch("https://restcountries.com/v3.1/all")
+        .then((res) => {
+          return res.json();
+        })
+        .then((data) => {
+          let USCountries = data.filter((cty) => {
+            return cty.currencies;
+          });
+          USCountries.forEach((cty) => {
+            console.log(`${cty.name.common}`);
+          });
+        });
+    </script>
+  </body>
+</html>
